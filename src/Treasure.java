@@ -145,19 +145,19 @@ public class Treasure {
 
 	public void generatePrefix(Scanner in, int index) throws FileNotFoundException {
 		Random rand = new Random();
-		String[] affixArr = new String[4];
+		String[] arr = new String[4];
 		String affix;
 		String[] ret = new String[3];
 		
 		affix = findAffix(index, in);
 		
 		if (affix != null) { 
-			affixArr = affix.split("\t");
-			ret[0] =  affixArr[0];
-			int val = rand.nextInt(Integer.parseInt(affixArr[affixArr.length - 1]) - 
-				Integer.parseInt(affixArr[affixArr.length - 2]) + 1) + Integer.parseInt(affixArr[affixArr.length - 2]);
+			arr = affix.split("\t");
+			ret[0] =  arr[0];
+			int val = rand.nextInt(Integer.parseInt(arr[arr.length - 1]) - 
+				Integer.parseInt(arr[arr.length - 2]) + 1) + Integer.parseInt(arr[arr.length - 2]);
 			ret[1] = val + "";
-			ret[2] = affixArr[1];
+			ret[2] = arr[1];
 		}
 		this.prefix = ret;
 	}
