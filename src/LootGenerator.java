@@ -3,6 +3,12 @@ import java.util.*;
 
 public class LootGenerator {
 
+	/*
+	 * Randomly selects a monster to fight (either 49 or 1) depending on the file size
+	 * @param size, String
+	 * @return statsArray, an array of monster stats
+	 * @throws FileNotFoundException
+	 */
 	public static String[] pickMonster(String size) throws FileNotFoundException {
 		Scanner in;
 		Random rand = new Random();

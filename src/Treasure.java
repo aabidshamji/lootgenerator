@@ -12,6 +12,11 @@ public class Treasure {
 	private String[] suffix;
 	private String[] armor;
 	
+	/*
+	 * to hold the treasure information, we build an arrayList of ArrayLists of strings
+	 * @param size, string
+	 * @throws FileNotFoundException
+	 */
 	public Treasure(String size) throws FileNotFoundException {
 		Scanner in;
 		this.size = size;
@@ -48,6 +53,10 @@ public class Treasure {
 	}
 	
 
+	/*
+	 * find the treasure to drop
+	 * @param stats, a string with stats
+	 */
 	public String generateBaseItem(String stats) {
 		int index = 0;
 		for (int i = 0; i < this.treasure.size(); i++) {
@@ -73,8 +82,12 @@ public class Treasure {
 			return generateBaseItem(treasure);
 		}
 	}
-	
 
+	/*
+	 * Generates prefixes and suffixes for defense and treasure.
+	 * @param item, an array of strings
+	 * @throws FileNotFoundException
+	 */
 	public void generateAffix(String[] item) throws FileNotFoundException {
 		Scanner pre;
 		Scanner suf;
@@ -122,7 +135,11 @@ public class Treasure {
 		this.affix = ret;
 	}
 	
-
+	/*
+	 * splits the suffix to determine the values 
+	 * @param in, a scanner 
+	 * @param index, an int 
+	 */
 	public void generateSuffix(Scanner in, int index) throws FileNotFoundException {
 		Random rand = new Random();
 		String[] affixArr = new String[4];
@@ -143,6 +160,11 @@ public class Treasure {
 	}
 	
 
+	/*
+	 * splits to find the value and prefix
+	 * @param in, a scanner 
+	 * @param index, an int
+	 */
 	public void generatePrefix(Scanner in, int index) throws FileNotFoundException {
 		Random rand = new Random();
 		String[] arr = new String[4];
@@ -163,6 +185,11 @@ public class Treasure {
 	}
 	
 
+	/*
+	 * find the affix
+	 * @param in, a scanner 
+	 * @param index, an int
+	 */
 	public String findAffix(int index, Scanner in) {
 		String aff = new String();
 		for (int i = 0; i < index; i++) {
@@ -177,6 +204,11 @@ public class Treasure {
 	}
 	
 
+	/*
+	 * returns the stats for the monster
+	 * @param treasure, string
+	 * @throws FileNotFoundException
+	 */
 	public void generateBaseStats(String treasure) throws FileNotFoundException {
 		Scanner in;
 		if (this.size.equals("large")) {
@@ -200,6 +232,10 @@ public class Treasure {
 	}
 	
 
+	/*
+	 * gets the defence stats
+	 * @return an int
+	 */
 	public int getDefenseValue() {
 		Random rand = new Random();
 		int defVal = rand.nextInt(Integer.parseInt(this.armor[2]) - 
